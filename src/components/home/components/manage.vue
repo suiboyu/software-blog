@@ -1,5 +1,7 @@
 <template>
-  <div class="content">
+  <div class="">
+    <Pub></Pub>
+    <div class="content">
     <el-table
       :data="tableData"
       style="width: 100%"
@@ -43,11 +45,16 @@
     <el-button @click="toggleSelection()">取消选择</el-button>
   </div>
   </div>
+  </div>
 </template>
 
 <script>
+import Pub from '../../public/pub'
 export default {
   name: 'manage',
+  components: {
+    Pub
+  },
   data() {
     return {
       tableData: [{

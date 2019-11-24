@@ -4,6 +4,7 @@ import home from '../components/home/index'
 import issue from '../components/home/components/issue'
 import manage from '../components/home/components/manage'
 import setting from '../components/login/components/setting'
+import login from '../components/login/index.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/setting',
       name: setting,
       component: setting
+    },
+    {
+      path: '/login',
+      name: login,
+      component: login
     }
   ]
 })

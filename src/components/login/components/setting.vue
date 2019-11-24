@@ -1,5 +1,7 @@
 <template>
-  <div class="content">
+  <div class="">
+    <Pub></Pub>
+    <div class="content">
     <h1>管理员信息</h1>
     <div class="">
       <el-form :inline="true" :model="formInline" class="demo-form-inline" :disabled="true">
@@ -26,14 +28,19 @@
       <el-button type="success">提交</el-button>
     </div>
     <div class="exit">
-      <el-button type="info">退出登录</el-button>
+      <router-link type="info" to="/login" tag="el-button">退出登录</router-link>
     </div>
+  </div>
   </div>
 </template>
 
 <script>
+import Pub from '../../public/pub'
 export default {
   name: 'setting',
+  components: {
+    Pub
+  },
   data() {
     return {
       formInline: {

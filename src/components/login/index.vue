@@ -1,12 +1,15 @@
 <template>
   <div class="">
+    <cLogin></cLogin>
   </div>
 </template>
 
 <script>
+import cLogin from '../login/components/Login'
 export default {
   name: 'login',
   components: {
+    cLogin
   },
   data () {
     return {

@@ -1,26 +1,29 @@
 <template>
-  <div class="content">
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-  <el-form-item label="文章标题" prop="name">
-    <el-input v-model="ruleForm.name" style="width: 400px"></el-input>
-  </el-form-item>
-  <el-form-item label="文章作者" prop="author">
-    <el-input v-model="ruleForm.author" style="width: 400px"></el-input>
-  </el-form-item>
-  <el-form-item label="文章类型" prop="region">
-    <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
-      <el-option label="科普" value="shanghai"></el-option>
-      <el-option label="生活" value="beijing"></el-option>
-      <el-option label="艺术" value="beijing"></el-option>
-      <el-option label="散文" value="beijing"></el-option>
-      <el-option label="小说" value="beijing"></el-option>
-      <el-option label="其他" value="beijing"></el-option>
-    </el-select>
+  <div class="">
+    <Pub></Pub>
+    <div class="content">
+      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+    <el-form-item label="文章标题" prop="name">
+      <el-input v-model="ruleForm.name" style="width: 400px"></el-input>
+    </el-form-item>
+    <el-form-item label="文章作者" prop="author">
+      <el-input v-model="ruleForm.author" style="width: 400px"></el-input>
+    </el-form-item>
+    <el-form-item label="文章类型" prop="region">
+      <el-select v-model="ruleForm.region" placeholder="请选择文章类型">
+        <el-option label="科普" value="shanghai"></el-option>
+        <el-option label="生活" value="beijing"></el-option>
+        <el-option label="艺术" value="beijing"></el-option>
+        <el-option label="散文" value="beijing"></el-option>
+        <el-option label="小说" value="beijing"></el-option>
+        <el-option label="其他" value="beijing"></el-option>
+      </el-select>
   </el-form-item>
   <el-form-item label="提交日期" required>
     <el-col :span="11">
       <el-form-item prop="date1">
-        <el-date-picker type="date" placeholder="提交日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
+        <el-date-picker type="date" placeholder="提交日期" v-model="ruleForm.date1" style="width: 100%;">
+        </el-date-picker>
       </el-form-item>
     </el-col>
   </el-form-item>
@@ -34,13 +37,18 @@
     <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
     <el-button @click="resetForm('ruleForm')">重置</el-button>
   </el-form-item>
-</el-form>
-  </div>
+  </el-form>
+ </div>
+</div>
 </template>
 
 <script>
+import Pub from '../../public/pub'
 export default {
   name: 'issue',
+  components: {
+    Pub
+  },
   data() {
       return {
         ruleForm: {
@@ -63,7 +71,7 @@ export default {
             // { min: 1, max: 3, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
           region: [
-            { required: true, message: '请选择活动区域', trigger: 'change' }
+            { required: true, message: '请选择文章类型', trigger: 'change' }
           ],
           date1: [
             { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
