@@ -1,17 +1,5 @@
 <template>
-  <div id="app" style="background: #ccc; height: 720px">
-    <router-view/>
-    <div class="content">
-      <div class="message">
-        <div class="demo-type">
-          <el-avatar shape="square" :size="60" :fit="fit" :src="url" @error="errorHandler" width="100%">
-           <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
-           </el-avatar>
-        </div>
-        <div class="desc">
-          <p>呱呱呱噶</p>
-        </div>
-      </div>
+  <div class="content">
     <el-radio-group v-model="isCollapse" class="navbar-title" >
       <el-radio-button :label="false" class="title-left">展开</el-radio-button>
       <el-radio-button :label="true" class="title-right" style="color: #fff">收起</el-radio-button>
@@ -31,10 +19,10 @@
     </template>
     <el-menu-item-group>
       <router-link tag="el-menu-item" index="1-1" style="color: #fff" to="/issue">发布文章</router-link>
-      <router-link tag="el-menu-item" index="1-2" style="color: #fff" to="/manage">管理文章</router-link>
+      <el-menu-item index="1-2" style="color: #fff">管理文章</el-menu-item>
     </el-menu-item-group>
     <el-menu-item-group>
-      <router-link tag="el-menu-item" index="1-3" style="color: #fff" to="/manage">选项3</router-link>
+      <el-menu-item index="1-3" style="color: #fff">选项3</el-menu-item>
     </el-menu-item-group>
     <el-submenu index="1-4">
       <span slot="title" style="color: #fff">选项4</span>
@@ -49,37 +37,31 @@
     <i class="el-icon-document"></i>
     <span slot="title" style="color: #fff">导航三</span>
   </el-menu-item>
-  <router-link tag="el-menu-item" index="4" to="/setting">
+  <el-menu-item index="4">
     <i class="el-icon-setting"></i>
-    <span slot="title" style="color: #fff">设置</span>
-  </router-link>
+    <span slot="title" style="color: #fff">导航四</span>
+  </el-menu-item>
 </el-menu>
-  </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  data() {
-    return {
-      isCollapse: true,
-      fit: 'scale-down',
-      url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
-    };
-  },
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+    name: 'navbar',
+    data() {
+      return {
+        isCollapse: true
+      };
     },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    errorHandler() {
-      return true
+    methods: {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      }
     }
   }
-}
 </script>
 
 <style scoped>
@@ -93,7 +75,7 @@ export default {
     text-align: center;
     padding: 26px 20px;
     /* background: red !important; */
-    /* background: #ccc; */
+    background: #ccc;
 }
 .title-right >>> .el-radio-button__inner {
     width: 100px !important;
@@ -101,7 +83,7 @@ export default {
     text-align: center;
     padding: 26px 20px;
     /* background: #545c64; */
-    /* background: #ccc; */
+    background: #ccc;
 }
 </style>
 
@@ -110,30 +92,11 @@ export default {
 .content
   width 100%
   height 70px
-  background #000
-  position absolute
-  left 0
-  top 0
+  background rgb(84, 92, 100)
   .navbar-title
     width 200px
     height 70px
     background-color red
     .title-left /deep/ .el-radio-button__inner
       text-align center
-  .message
-    width 100px
-    height 70px
-    z-index 999
-    position absolute
-    right 300px
-    box-sizing border-box
-    padding-top 4px
-    .desc
-      width 200px
-      height 70px
-      position absolute
-      right -200px
-      top 25px
-      color #fff
-      font-size 20px
 </style>
